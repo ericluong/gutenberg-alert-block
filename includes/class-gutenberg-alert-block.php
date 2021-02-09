@@ -19,8 +19,24 @@ class Gutenberg_Alert_Block {
 			$asset_file['version']
 		);
 
+		wp_register_style(
+			'gutenberg-alert-block-editor',
+			plugins_url( '../build/index.css', __FILE__ ),
+			array( 'wp-edit-blocks' ),
+			filemtime( plugin_dir_path( __FILE__ ) . '../build/index.css' )
+		);
+
+		wp_register_style(
+			'gutenberg-alert-block',
+			plugins_url( '../build/style-index.css', __FILE__ ),
+			array(),
+			filemtime( plugin_dir_path( __FILE__ ) . '../build/style-index.css' )
+		);
+
 		register_block_type( 'gutenberg-alert-block/info', array(
 			'editor_script' => 'gutenberg-alert-block',
+			'editor_style'  => 'gutenberg-alert-block-editor',
+			'style'         => 'gutenberg-alert-block',
 		) );
 	}
 }
