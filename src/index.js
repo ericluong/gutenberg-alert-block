@@ -1,5 +1,5 @@
 import {registerBlockType} from '@wordpress/blocks';
-import {useBlockProps} from '@wordpress/block-editor';
+import {useBlockProps, RichText} from '@wordpress/block-editor';
 
 import AlertBlock from "./js/alert-block";
 
@@ -11,12 +11,46 @@ registerBlockType('gutenberg-alert-block/info', {
     title: 'Info Alert Block',
     icon: 'info',
     category: 'text',
-    edit: () => {
-        const blockProps = useBlockProps();
-        return <div {...blockProps}>Info Alert Block</div>
+    attributes: {
+        title: {
+            type: 'string',
+            source: 'html',
+            selector: 'p'
+        },
+        content: {
+            type: 'string',
+            source: 'html',
+            selector: 'p'
+        },
     },
-    save: () => {
+    example: {
+        attributes: {
+            title: "Title",
+            content: "Content"
+        }
+    },
+    edit: (props) => {
+        const {attributes, setAttributes} = props;
+        const {title, content} = attributes;
+        const blockProps = useBlockProps({class: "gutenberg-alert-block gutenberg-alert-block-info"});
+
+        const onChangeTitle = (newTitle) => {
+            setAttributes({title: newTitle})
+        }
+
+        const onChangeContent = (newContent) => {
+            setAttributes({content: newContent})
+        }
+
+        return <div {...blockProps}>
+            <RichText tagName="p" value={title} onChange={onChangeTitle} placeholder="Title"/>
+            <RichText tagName="p" value={content} onChange={onChangeContent} placeholder="Content"/>
+        </div>
+    },
+    save: (props) => {
+        const {attributes} = props;
+        const {title, content} = attributes;
         const blockProps = useBlockProps.save({class: "gutenberg-alert-block gutenberg-alert-block-info"});
-        return <AlertBlock {...blockProps} icon="info" title="Title" content="Content"/>
+        return <AlertBlock {...blockProps} icon="info" title={title} content={content}/>
     }
 });
