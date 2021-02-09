@@ -10,6 +10,6 @@
 
 if ( ! class_exists( 'Gutenberg_Alert_Block' ) ) {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-gutenberg-alert-block.php';
-	Gutenberg_Alert_Block::init();
+	new Gutenberg_Alert_Block();
 }
 
