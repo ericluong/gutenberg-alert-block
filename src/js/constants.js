@@ -11,5 +11,11 @@ export const BLOCKS = [
         title: 'Info Alert Block',
         editorIcon: 'info',
         frontIcon: 'info'
+    },
+    {
+        name: `${BLOCK_PREFIX}/warning`,
+        title: 'Warning Alert Block',
+        editorIcon: 'warning',
+        frontIcon: 'warning'
     }
 ];
