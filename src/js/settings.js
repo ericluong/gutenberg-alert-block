@@ -1,4 +1,0 @@
-export const BLOCK_CLASS_NAME = "gutenberg-alert-block";
-export const TEXT_CLASS_NAME = `${BLOCK_CLASS_NAME}__text`;
-export const TITLE_CLASS_NAME = `${BLOCK_CLASS_NAME}__title`;
-export const BODY_CLASS_NAME = `${BLOCK_CLASS_NAME}__body`;
