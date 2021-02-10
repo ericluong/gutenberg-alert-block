@@ -13,9 +13,21 @@ export const BLOCKS = [
         frontIcon: 'info'
     },
     {
+        name: `${BLOCK_PREFIX}/success`,
+        title: 'Success Alert Block',
+        editorIcon: 'yes-alt',
+        frontIcon: 'yes-alt'
+    },
+    {
         name: `${BLOCK_PREFIX}/warning`,
         title: 'Warning Alert Block',
         editorIcon: 'warning',
         frontIcon: 'warning'
-    }
+    },
+    {
+        name: `${BLOCK_PREFIX}/error`,
+        title: 'Error Alert Block',
+        editorIcon: 'dismiss',
+        frontIcon: 'dismiss'
+    },
 ];
