@@ -8,7 +8,7 @@ export default function settingFactory(title, editorIcon, frontIcon) {
         apiVersion: 2,
         title,
         icon: editorIcon,
-        category: 'text',
+        category: 'gutenberg-alert-blocks',
         attributes: {
             title: {
                 type: 'array',

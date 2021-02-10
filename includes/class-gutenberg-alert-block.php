@@ -7,6 +7,7 @@ class Gutenberg_Alert_Block {
 
 	public function init() {
 		add_action( 'init', array( $this, 'register_blocks' ) );
+		add_filter( 'block_categories', array( $this, 'register_block_categories' ), 10, 2 );
 	}
 
 	public function register_blocks() {
@@ -38,5 +39,17 @@ class Gutenberg_Alert_Block {
 			'editor_style'  => 'gutenberg-alert-block-editor',
 			'style'         => 'gutenberg-alert-block',
 		) );
+	}
+
+	public function register_block_categories( $categories ) {
+		return array_merge(
+			$categories,
+			array(
+				array(
+					'slug'  => 'gutenberg-alert-blocks',
+					'title' => "Alert Blocks",
+				),
+			)
+		);
 	}
 }
