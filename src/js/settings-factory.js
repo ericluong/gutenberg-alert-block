@@ -57,7 +57,7 @@ export default function settingFactory(title, editorIcon, frontIcon) {
             const {title, body} = attributes;
 
             const blockProps = useBlockProps.save();
-            props.className += ` ${BLOCK_CLASS_NAME}`;
+            blockProps.className += ` ${BLOCK_CLASS_NAME}`;
 
             return <div {...blockProps}>
                 <Icon icon={frontIcon}/>
