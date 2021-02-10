@@ -13,44 +13,50 @@ registerBlockType('gutenberg-alert-block/info', {
     category: 'text',
     attributes: {
         title: {
-            type: 'string',
-            source: 'html',
-            selector: 'p'
+            type: 'array',
+            source: 'children',
+            selector: '.gutenberg-alert-block-title'
         },
-        content: {
-            type: 'string',
-            source: 'html',
-            selector: 'p'
+        body: {
+            type: 'array',
+            source: 'children',
+            selector: '.gutenberg-alert-block-body'
         },
     },
     example: {
-        attributes: {
+        body: {
             title: "Title",
-            content: "Content"
+            content: "Body"
         }
     },
     edit: (props) => {
         const {attributes, setAttributes} = props;
-        const {title, content} = attributes;
-        const blockProps = useBlockProps({class: "gutenberg-alert-block gutenberg-alert-block-info"});
+        const {title, body} = attributes;
+
+        const blockProps = useBlockProps();
+        blockProps.className += ` gutenberg-alert-block`;
 
         const onChangeTitle = (newTitle) => {
             setAttributes({title: newTitle})
         }
 
-        const onChangeContent = (newContent) => {
-            setAttributes({content: newContent})
+        const onChangeBody = (newBody) => {
+            setAttributes({body: newBody})
         }
 
         return <div {...blockProps}>
-            <RichText tagName="p" value={title} onChange={onChangeTitle} placeholder="Title"/>
-            <RichText tagName="p" value={content} onChange={onChangeContent} placeholder="Content"/>
+            <RichText tagName="p" value={title} onChange={onChangeTitle} placeholder="Title"
+                      keepPlaceholderOnFocus={true}/>
+            <RichText tagName="p" value={body} onChange={onChangeBody} placeholder="Body"
+                      keepPlaceholderOnFocus={true}/>
         </div>
     },
     save: (props) => {
         const {attributes} = props;
-        const {title, content} = attributes;
-        const blockProps = useBlockProps.save({class: "gutenberg-alert-block gutenberg-alert-block-info"});
-        return <AlertBlock {...blockProps} icon="info" title={title} content={content}/>
+        const {title, body} = attributes;
+
+        const blockProps = useBlockProps.save();
+
+        return <AlertBlock title={title} body={body} {...blockProps} icon="info"/>
     }
 });

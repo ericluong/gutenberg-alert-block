@@ -1,11 +1,14 @@
+import {RichText} from '@wordpress/block-editor';
 import {Icon} from '@wordpress/components';
 
-function AlertBlock({title, content, icon, ...props}) {
+function AlertBlock({title, body, icon, ...props}) {
+    props.className += ` gutenberg-alert-block`;
+
     return <div {...props}>
         <Icon icon={icon}/>
         <div class="gutenberg-alert-block-text">
-            <p class="gutenberg-alert-block-heading">{title}</p>
-            <p class="gutenberg-alert-block-content">{content}</p>
+            <RichText.Content tagName="p" className="gutenberg-alert-block-title" value={title}/>
+            <RichText.Content tagName="p" className="gutenberg-alert-block-body" value={body}/>
         </div>
     </div>
 }
