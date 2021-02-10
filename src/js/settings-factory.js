@@ -46,9 +46,9 @@ export default function settingFactory(title, editorIcon, frontIcon) {
                 <Icon icon={frontIcon}/>
                 <div className={TEXT_CLASS_NAME}>
                     <RichText tagName="p" value={title} onChange={onChangeTitle} placeholder="Title"
-                              keepPlaceholderOnFocus={true}/>
+                              keepPlaceholderOnFocus={true} className={TITLE_CLASS_NAME}/>
                     <RichText tagName="p" value={body} onChange={onChangeBody} placeholder="Body"
-                              keepPlaceholderOnFocus={true}/>
+                              keepPlaceholderOnFocus={true} className={BODY_CLASS_NAME}/>
                 </div>
             </div>
         },
