@@ -5,7 +5,8 @@
   "main": "build/index.js",
   "scripts": {
     "start": "wp-scripts start",
-    "build": "wp-scripts build"
+    "build": "wp-scripts build",
+    "lint:js:src": "wp-scripts lint-js ./src"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,8 @@
   },
   "homepage": "https://github.com/ericluong/gutenberg-alert-block#readme",
   "devDependencies": {
-    "@wordpress/scripts": "13.0.3"
+    "@wordpress/prettier-config": "^1.0.1",
+    "@wordpress/scripts": "13.0.3",
+    "prettier": "^2.2.1"
   }
 }
