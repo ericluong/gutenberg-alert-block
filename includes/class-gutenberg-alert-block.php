@@ -47,7 +47,7 @@ class Gutenberg_Alert_Block {
 			array(
 				array(
 					'slug'  => 'gutenberg-alert-blocks',
-					'title' => "Alert Blocks",
+					'title' => 'Alert Blocks',
 				),
 			)
 		);
