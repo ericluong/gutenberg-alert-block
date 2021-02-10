@@ -1,7 +1,12 @@
 import {registerBlockType} from '@wordpress/blocks';
 import {useBlockProps, RichText} from '@wordpress/block-editor';
+import {Icon} from '@wordpress/components';
 
-import AlertBlock from "./js/alert-block";
+import {
+    BLOCK_CLASS_NAME,
+    TITLE_CLASS_NAME,
+    BODY_CLASS_NAME, TEXT_CLASS_NAME
+} from './js/settings';
 
 import './scss/index.scss';
 import './scss/style.scss';
@@ -15,12 +20,12 @@ registerBlockType('gutenberg-alert-block/info', {
         title: {
             type: 'array',
             source: 'children',
-            selector: '.gutenberg-alert-block-title'
+            selector: `.${TITLE_CLASS_NAME}`
         },
         body: {
             type: 'array',
             source: 'children',
-            selector: '.gutenberg-alert-block-body'
+            selector: `.${BODY_CLASS_NAME}`
         },
     },
     example: {
@@ -34,7 +39,7 @@ registerBlockType('gutenberg-alert-block/info', {
         const {title, body} = attributes;
 
         const blockProps = useBlockProps();
-        blockProps.className += ` gutenberg-alert-block`;
+        blockProps.className += ` ${BLOCK_CLASS_NAME}`;
 
         const onChangeTitle = (newTitle) => {
             setAttributes({title: newTitle})
@@ -56,7 +61,14 @@ registerBlockType('gutenberg-alert-block/info', {
         const {title, body} = attributes;
 
         const blockProps = useBlockProps.save();
+        props.className += ` ${BLOCK_CLASS_NAME}`;
 
-        return <AlertBlock title={title} body={body} {...blockProps} icon="info"/>
+        return <div {...blockProps}>
+            <Icon icon="info"/>
+            <div className={TEXT_CLASS_NAME}>
+                <RichText.Content tagName="p" className={TITLE_CLASS_NAME} value={title}/>
+                <RichText.Content tagName="p" className={BODY_CLASS_NAME} value={body}/>
+            </div>
+        </div>
     }
 });
