@@ -6,7 +6,8 @@
   "scripts": {
     "start": "wp-scripts start",
     "build": "wp-scripts build",
-    "lint:js:src": "wp-scripts lint-js ./src"
+    "lint:js": "wp-scripts lint-js ./src",
+    "lint:css": "wp-scripts lint-style 'src/**/*.scss'"
   },
   "repository": {
     "type": "git",

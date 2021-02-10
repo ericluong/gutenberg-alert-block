@@ -1,7 +1,7 @@
 @mixin create_variation($color) {
-  border-left-color: $color;
+	border-left-color: $color;
 
-  > .dashicons {
-    color: $color;
-  }
+	> .dashicons {
+		color: $color;
+	}
 }
