@@ -1,9 +1,5 @@
-$info-color: #3589e8;
-$success-color: #4fd56a;
-$warning-color: #febf39;
-$error-color: #c32828;
-
-$icon-size: 30px;
+@import './constants.scss';
+@import './utils.scss';
 
 .gutenberg-alert-block {
   display: flex;
@@ -14,63 +10,47 @@ $icon-size: 30px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
   border-left: 5px solid #000;
   padding: 2rem;
+}
 
-  > .dashicons {
-    color: #000;
-    width: $icon-size;
-    height: $icon-size;
-    font-size: $icon-size;
+.gutenberg-alert-block > .dashicons {
+  color: #000;
+  width: $icon-size;
+  height: $icon-size;
+  font-size: $icon-size;
 
-    + .gutenberg-alert-block-text {
-      margin-left: 1.5rem;
-    }
-  }
-
-  &.gutenberg-alert-block-info {
-    border-left-color: $info-color;
-
-    > .dashicons {
-      color: $info-color;
-    }
-  }
-
-  &.gutenberg-alert-block-success {
-    border-left-color: $success-color;
-
-    > .dashicons {
-      color: $success-color;
-    }
-  }
-
-  &.gutenberg-alert-block-warning {
-    border-left-color: $warning-color;
-
-    > .dashicons {
-      color: $warning-color;
-    }
-  }
-
-  &.gutenberg-alert-block-error {
-    border-left-color: $error-color;
-
-    > .dashicons {
-      color: $error-color;
-    }
+  + .gutenberg-alert-block__text {
+    margin-left: 1.5rem;
   }
 }
 
-.gutenberg-alert-block-text {
+.gutenberg-alert-block__text {
   > p {
     margin: 0;
   }
+
+  &__title {
+    font-weight: bold;
+    color: #000;
+  }
+
+  &__body {
+    font-size: 0.9em;
+    color: #7c7c7c;
+  }
 }
 
-.gutenberg-alert-block-heading {
-  font-weight: bold;
-  color: #141414;
+.wp-block-gutenberg-alert-block-info {
+  @include create_variation($info-color);
 }
 
-.gutenberg-alert-block-content {
-  font-size: 0.9em;
-  color: #7c7c7c;
+.wp-block-gutenberg-alert-block-success {
+  @include create_variation($success-color);
+}
+
+.wp-block-gutenberg-alert-block-warning {
+  @include create_variation($warning-color);
+}
+
+.wp-block-gutenberg-alert-block-error {
+  @include create_variation($error-color);
 }
