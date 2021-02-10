@@ -14,7 +14,10 @@
 
 .gutenberg-alert-block__text {
 	> p {
-		margin: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+		margin-left: 0;
+		margin-right: 0;
 	}
 
 	&__title {
@@ -23,7 +26,7 @@
 	}
 
 	&__body {
-		font-size: 0.9em;
+		font-size: $body-font-size;
 		color: #7c7c7c;
 	}
 }

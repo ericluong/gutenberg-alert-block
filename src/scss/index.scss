@@ -1,6 +1,14 @@
+@import './constants.scss';
+
 .editor-styles-wrapper {
 	.gutenberg-alert-block__text p {
 		margin-top: 0;
 		margin-bottom: 0;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.gutenberg-alert-block__text__body {
+		font-size: $body-font-size;
 	}
 }
